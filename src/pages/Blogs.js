@@ -1,31 +1,23 @@
-import React,{useEffect} from 'react';
-import {useSelector,useDispatch} from 'react-redux';
-import { getBlogsList } from '../store/actions/Blog';
-import Blog from '../components/Blog';
-import {Link} from "react-router-dom";
-// import History from '../routes/History';
-import {
-    Switch,
-    Redirect,
-    useLocation,
-    useHistory,
-    Route
-  } from "react-router-dom";
-import history from '../routes/History';
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getBlogsList } from "../store/actions/Blog";
+import Blog from "../components/Blog";
+import history from "../routes/History";
 
 const Blogs = () => {
-    // const History = useHistory()
-    const dispatch = useDispatch()
-    const {blogs:{blogsList}} = useSelector(state=>state)
-    useEffect(() => {
-        dispatch(getBlogsList())
-    }, [])
-    return (
-        <>
-        <button onClick={()=>history.push(`/add-blog`)}>Add Blog</button>
-           {blogsList&&blogsList.map((blog,i)=><Blog blog={blog} key={i}/>)} 
-        </>
-    )
-}
+  const dispatch = useDispatch();
+  const {
+    blogs: { blogsList }
+  } = useSelector(state => state);
+  useEffect(() => {
+    dispatch(getBlogsList());
+  }, []);
+  return (
+    <>
+      <button onClick={() => history.push(`/add-blog`)}>Add Blog</button>
+      {blogsList && blogsList.map((blog, i) => <Blog blog={blog} key={i} />)}
+    </>
+  );
+};
 
-export default Blogs
+export default Blogs;

@@ -1,5 +1,6 @@
 import db from "../firebase.config";
 import { Link } from "react-router-dom";
+import history from "../routes/History";
 
 const getBlogsList = async () =>
   await db
@@ -11,18 +12,23 @@ const getBlogsList = async () =>
       })
     );
 const addBlog = async payload => {
-  console.log("add")
   return await db
     .collection("blogs")
     .add(payload)
-    .then(res => <Link to="/" />);
+    .then(history.push(`/`));
 };
 const editBlog = async payload => {
-  console.log("edit")
   return await db
     .collection("blogs")
     .doc(payload.id)
     .set({ title: payload.title, description: payload.description })
-    .then(res => <Link to="/" />);
+    .then(history.push(`/`));
 };
-export { getBlogsList, addBlog,editBlog };
+const deleteBlog = async payload => {
+  return await db
+    .collection("blogs")
+    .doc(payload.id)
+    .delete()
+    .then(history.push(`/`));
+};
+export { getBlogsList, addBlog, editBlog, deleteBlog };

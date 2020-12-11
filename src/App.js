@@ -4,11 +4,11 @@ import { Router } from "react-router-dom";
 import History from "./routes/History";
 function App() {
   return (
-    // <div className="App w-50 m-auto">
-    <Router history={History}>
-      <Routes />
-    </Router>
-    // </div>
+    <div className="App w-50 m-auto">
+      <Router history={History}>
+        <Routes />
+      </Router>
+    </div>
   );
 }
 
