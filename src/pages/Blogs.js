@@ -2,6 +2,7 @@ import React,{useEffect} from 'react';
 import {useSelector,useDispatch} from 'react-redux';
 import { getBlogsList } from '../store/actions/Blog';
 import Blog from '../components/Blog';
+import {Link} from "react-router-dom";
 // import History from '../routes/History';
 import {
     Switch,
@@ -10,9 +11,10 @@ import {
     useHistory,
     Route
   } from "react-router-dom";
+import history from '../routes/History';
 
 const Blogs = () => {
-    const History = useHistory()
+    // const History = useHistory()
     const dispatch = useDispatch()
     const {blogs:{blogsList}} = useSelector(state=>state)
     useEffect(() => {
@@ -20,7 +22,7 @@ const Blogs = () => {
     }, [])
     return (
         <>
-        <button onClick={()=>History.push('/add-blog')}>Add Blog</button>
+        <button onClick={()=>history.push(`/add-blog`)}>Add Blog</button>
            {blogsList&&blogsList.map((blog,i)=><Blog blog={blog} key={i}/>)} 
         </>
     )

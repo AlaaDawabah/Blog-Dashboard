@@ -1,4 +1,4 @@
-import { GET_BLOGS_LIST,BLOGS_LIST_RECIEVE,ADD_BLOG } from "../types/Blog";
+import { GET_BLOGS_LIST,BLOGS_LIST_RECIEVE,ADD_BLOG,EDIT_BLOG } from "../types/Blog";
 
 export const getBlogsList = payload => ({
   type: GET_BLOGS_LIST,
@@ -10,9 +10,11 @@ export const blogsListRecieve = payload => ({
   payload
 });
 
-export const addBlog = payload => {
-  console.log("action",payload)
-  return({
+export const addBlog = payload => ({
   type:ADD_BLOG,
   payload
-})};
+});
+export const editBlog = payload => ({
+  type:EDIT_BLOG,
+  payload
+});

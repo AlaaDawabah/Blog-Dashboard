@@ -1,13 +1,18 @@
 import React from "react";
 import {useDispatch} from "react-redux";
-import {addBlog} from "../store/actions/Blog"
+import {addBlog, editBlog} from "../store/actions/Blog"
 
-const AddBlog = () => {
+const AddBlog = ({location}) => {
+    const blog = location?.state?.blog;
+    console.log("blog",location)
     const dispatch = useDispatch()
     const handleSubmit=(e)=>{
         e.preventDefault();
-        console.log("e",e.target.blog_title.value)
-        dispatch(addBlog({
+        blog?dispatch(editBlog({
+            id:blog.id,
+            title:e.target.blog_title.value,
+            description:e.target.blog_desc.value
+        })):dispatch(addBlog({
             title:e.target.blog_title.value,
             description:e.target.blog_desc.value
         }))
@@ -21,6 +26,7 @@ const AddBlog = () => {
           id="exampleFormControlInput1"
           placeholder="Title"
           name="blog_title"
+          defaultValue={blog?blog.data.title:""}
         />
       </div>
       <div class="mb-3">
@@ -30,6 +36,7 @@ const AddBlog = () => {
           rows="3"
           name="blog_desc"
           placeholder="Body"
+          defaultValue={blog?blog.data.description:""}
         ></textarea>
       </div>
       <button type="submit">Submit</button>

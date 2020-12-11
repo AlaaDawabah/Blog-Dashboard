@@ -1,26 +1,36 @@
-import React, { Suspense, useEffect } from "react";
+import React, { useEffect } from "react";
 import {
-  Router,
   Switch,
-  Redirect,
-  useLocation,
+  Route,
+  Router,
+  BrowserRouter,
   useHistory,
-  Route
+  useLocation
 } from "react-router-dom";
-// import history from "./History";
 import AddBlog from "../components/AddBlog";
 import Blogs from "../pages/Blogs";
-
+import history from "./History"
 const Routes = () => {
-  const history = useHistory();
-
+  const location = useLocation();
+  const History = useHistory();
+  // useEffect(() => {
+  //   History.push({
+  //     search: location.search,
+  //     state: location.state
+  //   });
+  // }, []);
   return (
-    <Router history={history}>
+    // <div>
+    // <BrowserRouter>
+      // <Router history={history}>
       <Switch>
-        <Route path={"/"} component={Blogs} exact />
+        <Route path={`/`} component={Blogs} exact />
         <Route path={`/add-blog`} component={AddBlog} exact />
+        <Route path={`/edit-blog`} component={AddBlog} exact />
       </Switch>
-    </Router>
+      // </Router>
+    // </BrowserRouter>
+    // </div>
   );
 };
 
