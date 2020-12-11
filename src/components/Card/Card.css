@@ -1,0 +1,25 @@
+.card {
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
+}
+/* .card:hover .card_overlay {
+  opacity: 1;
+  transition: opacity 1s ease-out;
+} */
+.card_overlay {
+  /* opacity: 0; */
+  border-top: 1px solid #ff7615;
+  border-radius: 0.25rem;
+}
+.delete_icon,
+.edit_icon {
+  background-color: #ff7615;
+  text-align: center;
+}
+.delete_icon,
+.edit_icon svg {
+  cursor: pointer;
+  color: #fff;
+}
+.edit_icon {
+  border-right: 1px solid #fff;
+}
