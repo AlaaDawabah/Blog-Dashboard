@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import AddBlog from "../components/AddBlog";
+import AddBlog from "../components/AddBlog/AddBlog";
 import Blogs from "../pages/Blogs/Blogs";
 const Routes = () => {
   return (

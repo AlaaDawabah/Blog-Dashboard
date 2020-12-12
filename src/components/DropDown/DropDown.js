@@ -1,13 +1,13 @@
 import React from "react";
 import { Dropdown as ReactBootstrapDropDown } from "react-bootstrap";
 import DropdownButton from "react-bootstrap/DropdownButton";
-
-const DropDown = ({ dropDownArr, onSelect }) => {
+import "./DropDown.css";
+const DropDown = ({ dropDownArr, onSelect,title }) => {
   return (
     <ReactBootstrapDropDown>
       <DropdownButton
         id="dropdown-basic-button"
-        title="Dropdown button"
+        title={title}
         onSelect={onSelect}
       >
         {dropDownArr.length &&

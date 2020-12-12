@@ -7,17 +7,25 @@
 } */
 .card_overlay {
   /* opacity: 0; */
-  border-top: 1px solid #ff7615;
+  border-top: 1px solid #c34242;
   border-radius: 0.25rem;
+}
+.card_overlay:hover{
+  border-top:4px solid #c34242;
+  transition: border-top 0.15s ease-in-out;
 }
 .delete_icon,
 .edit_icon {
-  background-color: #ff7615;
+  cursor: pointer;
+  background-color: #c34242;
   text-align: center;
+}
+.delete_icon:hover,
+.edit_icon:hover {
+  background-color: #d85858;
 }
 .delete_icon,
 .edit_icon svg {
-  cursor: pointer;
   color: #fff;
 }
 .edit_icon {

@@ -1,5 +1,4 @@
 import db from "../firebase.config";
-import { Link } from "react-router-dom";
 import history from "../routes/History";
 
 const getBlogsList = async () =>
@@ -21,7 +20,7 @@ const editBlog = async payload => {
   return await db
     .collection("blogs")
     .doc(payload.id)
-    .set({ title: payload.title, description: payload.description })
+    .set({ title: payload.title, description: payload.description, category:payload.category })
     .then(history.push(`/`));
 };
 const deleteBlog = async payload => {
@@ -29,7 +28,7 @@ const deleteBlog = async payload => {
     .collection("blogs")
     .doc(payload.id)
     .delete()
-    .then(history.push(`/`));
+    .then(history.push("/"));
 };
 const filterBlog = async payload => {
   return await db

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getBlogsList, filterBlog } from "../../store/actions/Blog";
-import Blog from "../../components/Blog";
+import Blog from "../../components/Blog/Blog";
 import history from "../../routes/History";
 import DropDown from "../../components/DropDown/DropDown";
 import "./Blogs.css";
@@ -14,6 +14,7 @@ const Blogs = () => {
     dispatch(getBlogsList());
   }, []);
   const blogCategories = [
+    "All",
     "Science",
     "Health",
     "Cosmetic",
@@ -23,8 +24,7 @@ const Blogs = () => {
     "Fiction"
   ];
   const handleSelect = e => {
-    console.log("e", e);
-    dispatch(filterBlog(e))
+    e === "All" ? dispatch(getBlogsList()) : dispatch(filterBlog(e));
   };
   return (
     <>
@@ -34,31 +34,25 @@ const Blogs = () => {
             onClick={() => history.push(`/add-blog`)}
             className="add_blog_btn mb-4"
           >
-            <span>
-              <svg
-                width="1.5em"
-                height="1.5em"
-                viewBox="0 0 16 16"
-                class="bi bi-plus"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-                className="pr-1"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
-                />
-              </svg>
-              Add Blog
-            </span>
+            <span>Add Blog</span>
           </button>
         </div>
         <div className="col-md-6 d-flex justify-content-end">
-          <DropDown dropDownArr={blogCategories} onSelect={handleSelect} />
+          <DropDown
+            dropDownArr={blogCategories}
+            onSelect={handleSelect}
+            title={"Filter By Category"}
+          />
         </div>
       </div>
       <div>
-        {blogsList && blogsList.map((blog, i) => <Blog blog={blog} key={i} />)}
+        {blogsList.length ? (
+          blogsList.map((blog, i) => <Blog blog={blog} key={i} />)
+        ) : (
+          <p className="text-center mt-5">
+            <b>There is no blogs right now</b>
+          </p>
+        )}
       </div>
     </>
   );

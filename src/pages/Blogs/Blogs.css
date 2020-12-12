@@ -1,13 +1,15 @@
 .add_blog_btn,.search{
-    height: 45px;
+    height: 40px;
     background-color: transparent;
+    color: #c34242;
     outline: 0;
-    border: 1px solid #da5b00;
+    border: 2px solid #c34242;
     border-radius: 5px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
+    padding: 0 20px
 }
 .add_blog_btn svg{
-    color: #da5b00;
+    color: #c34242;
     font-size: 15px;
     padding-bottom: 4px
 }

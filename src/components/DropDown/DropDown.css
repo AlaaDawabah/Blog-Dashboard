@@ -1,0 +1,11 @@
+#dropdown-basic-button{
+    background-color: transparent;
+    color: #c34242;
+    border: 2px solid #c34242;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
+}
+.dropdown-item.active, .dropdown-item:active {
+    color: #fff;
+    text-decoration: none;
+    background-color: #d85858 !important;
+}
