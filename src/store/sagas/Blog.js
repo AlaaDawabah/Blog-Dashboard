@@ -24,9 +24,16 @@ function* deleteBlog({ payload }) {
     yield call(API.deleteBlog, payload);
   } catch (error) {}
 }
+function* filterBlog({ payload }) {
+  try {
+    const response = yield call(API.filterBlog, payload);
+    yield put(ACTIONS.blogsListRecieve(response));
+  } catch (error) {}
+}
 export function* BlogsSagasWatch() {
   yield takeLatest(TYPES.GET_BLOGS_LIST, getBlogsList);
   yield takeLatest(TYPES.ADD_BLOG, addBlog);
   yield takeLatest(TYPES.EDIT_BLOG, editBlog);
   yield takeLatest(TYPES.DELETE_BLOG, deleteBlog);
+  yield takeLatest(TYPES.FILTER_BLOG, filterBlog);
 }

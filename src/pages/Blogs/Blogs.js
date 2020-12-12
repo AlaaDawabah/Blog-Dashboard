@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getBlogsList } from "../../store/actions/Blog";
+import { getBlogsList, filterBlog } from "../../store/actions/Blog";
 import Blog from "../../components/Blog";
 import history from "../../routes/History";
+import DropDown from "../../components/DropDown/DropDown";
 import "./Blogs.css";
 const Blogs = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,19 @@ const Blogs = () => {
   useEffect(() => {
     dispatch(getBlogsList());
   }, []);
+  const blogCategories = [
+    "Science",
+    "Health",
+    "Cosmetic",
+    "Architecture",
+    "Technology",
+    "Development",
+    "Fiction"
+  ];
+  const handleSelect = e => {
+    console.log("e", e);
+    dispatch(filterBlog(e))
+  };
   return (
     <>
       <div className="row justify-content-between">
@@ -40,7 +54,7 @@ const Blogs = () => {
           </button>
         </div>
         <div className="col-md-6 d-flex justify-content-end">
-          <input type="text" className="px-3 search" placeholder={`Search`} />
+          <DropDown dropDownArr={blogCategories} onSelect={handleSelect} />
         </div>
       </div>
       <div>

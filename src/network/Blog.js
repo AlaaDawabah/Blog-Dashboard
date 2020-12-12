@@ -31,4 +31,15 @@ const deleteBlog = async payload => {
     .delete()
     .then(history.push(`/`));
 };
-export { getBlogsList, addBlog, editBlog, deleteBlog };
+const filterBlog = async payload => {
+  return await db
+    .collection("blogs")
+    .where("category", "==", payload)
+    .get()
+    .then(snapshot =>
+      snapshot.docs.map(doc => {
+        return { data: doc.data(), id: doc.id };
+      })
+    );
+};
+export { getBlogsList, addBlog, editBlog, deleteBlog, filterBlog };

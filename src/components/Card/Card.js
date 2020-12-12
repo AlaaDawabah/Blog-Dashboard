@@ -60,6 +60,8 @@ const Card = ({ blog }) => {
         className="ml-2 px-2"
         style={{borderLeft:"3px solid #ff7615"}}
         >{blog.data.description}</p>
+      <footer class="blockquote-footer">{blog.data.category}</footer>
+
       </div>
     </div>
   );
