@@ -1,10 +1,28 @@
 .submit_blog_btn {
   height: 40px;
-  background-color: transparent;
-  color: #c34242;
+  background-color: #62757b;
+  color: #fff;
   outline: 0;
-  border: 2px solid #c34242;
+  border: none;
   border-radius: 5px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
   padding: 0 20px;
+}
+.submit_blog_btn:hover {
+  height: 40px;
+  background-color: #a5aaab;
+}
+.tag_btn {
+  background-color: #d07f69;
+  border: none;
+  margin-right: 3px;
+  border-radius: 5px;
+  color: #fff;
+}
+.tag_btn:focus {
+  background-color: #e6d1cf;
+}
+#title:focus, #caregory:focus, #body:focus {
+  border: none;
+  box-shadow: 0 0 0 0.1rem #e6d1cf;
 }

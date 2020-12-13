@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import History from "../../routes/History";
 import { deleteBlog } from "../../store/actions/Blog";
 import "./Card.css";
+import { setLoader } from "../../store/actions/Spinner";
 const Card = ({ blog }) => {
   const dispatch = useDispatch();
   return (
@@ -32,7 +33,10 @@ const Card = ({ blog }) => {
           </div>
           <div
             className="col-md-1 px-2 delete_icon"
-            onClick={() => dispatch(deleteBlog({ id: blog.id }))}
+            onClick={() => {
+              dispatch(deleteBlog({ id: blog.id }))
+              dispatch(setLoader(true))
+            }}
           >
             <svg
               width="1em"

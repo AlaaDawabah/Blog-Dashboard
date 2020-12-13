@@ -7,22 +7,22 @@
 } */
 .card_overlay {
   /* opacity: 0; */
-  border-top: 1px solid #c34242;
+  border-top: 1px solid #62757b;
   border-radius: 0.25rem;
 }
 .card_overlay:hover{
-  border-top:4px solid #c34242;
+  border-top:4px solid #62757b;
   transition: border-top 0.15s ease-in-out;
 }
 .delete_icon,
 .edit_icon {
   cursor: pointer;
-  background-color: #c34242;
+  background-color: #62757b;
   text-align: center;
 }
 .delete_icon:hover,
 .edit_icon:hover {
-  background-color: #d85858;
+  background-color: #a5aaab;
 }
 .delete_icon,
 .edit_icon svg {
@@ -30,4 +30,7 @@
 }
 .edit_icon {
   border-right: 1px solid #fff;
+}
+.blockquote-footer{
+  color: #d07f69 !important;
 }

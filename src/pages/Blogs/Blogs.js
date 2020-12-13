@@ -5,6 +5,7 @@ import Blog from "../../components/Blog/Blog";
 import history from "../../routes/History";
 import DropDown from "../../components/DropDown/DropDown";
 import "./Blogs.css";
+import { setLoader } from "../../store/actions/Spinner";
 const Blogs = () => {
   const dispatch = useDispatch();
   const {
@@ -24,8 +25,14 @@ const Blogs = () => {
     "Fiction"
   ];
   const handleSelect = e => {
-    e === "All" ? dispatch(getBlogsList()) : dispatch(filterBlog(e));
-  };
+    if(e === "All"){
+      // dispatch(setLoader(true))
+      dispatch(getBlogsList())
+    } else{
+      // dispatch(setLoader(true))
+      dispatch(filterBlog(e))
+    }
+  }
   return (
     <>
       <div className="row justify-content-between">
@@ -46,7 +53,7 @@ const Blogs = () => {
         </div>
       </div>
       <div>
-        {blogsList.length ? (
+        {blogsList&&blogsList.length ? (
           blogsList.map((blog, i) => <Blog blog={blog} key={i} />)
         ) : (
           <p className="text-center mt-5">
