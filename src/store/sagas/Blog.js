@@ -2,7 +2,6 @@ import { call, put, takeLatest } from "redux-saga/effects";
 import * as TYPES from "../types/Blog";
 import * as ACTIONS from "../actions/Blog";
 import * as API from "../../network/Blog";
-import { setLoader } from "../actions/Spinner";
 
 function* getBlogsList({ payload }) {
   try {

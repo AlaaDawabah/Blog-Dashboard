@@ -5,7 +5,6 @@ import Blog from "../../components/Blog/Blog";
 import history from "../../routes/History";
 import DropDown from "../../components/DropDown/DropDown";
 import "./Blogs.css";
-import { setLoader } from "../../store/actions/Spinner";
 const Blogs = () => {
   const dispatch = useDispatch();
   const {
@@ -26,10 +25,8 @@ const Blogs = () => {
   ];
   const handleSelect = e => {
     if(e === "All"){
-      // dispatch(setLoader(true))
       dispatch(getBlogsList())
     } else{
-      // dispatch(setLoader(true))
       dispatch(filterBlog(e))
     }
   }

@@ -59,8 +59,7 @@ const Card = ({ blog }) => {
           <b>{blog.data.title}</b>
         </h5>
         <p
-          className="card-text"
-          className="ml-2 px-2"
+          className="card-text ml-2 px-2"
           style={{ borderLeft: "3px solid #dcd7d7" }}
         >
           {blog.data.description}
